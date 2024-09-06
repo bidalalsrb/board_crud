@@ -6,12 +6,14 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper
-public interface PostMapper {
+public interface PostMappers {
 
     @Select("SELECT * FROM posts")
     List<Post> getAllPosts();
+
     @Select("SELECT * FROM posts WHERE title LIKE CONCAT('%', #{keyword}, '%') OR content LIKE CONCAT('%', #{keyword}, '%')")
     List<Post> searchPosts(String keyword);
+
     @Select("SELECT * FROM posts WHERE id = #{id}")
     Post getPostById(Long id);
 
@@ -24,4 +26,6 @@ public interface PostMapper {
 
     @Delete("DELETE FROM posts WHERE id = #{id}")
     void deletePost(Long id);
+
 }
+
