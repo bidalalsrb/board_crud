@@ -1,4 +1,4 @@
-package com.example.crud;
+package com.example.crud.entity;
 
 public class Post {
     private Long id;

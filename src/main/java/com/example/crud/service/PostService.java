@@ -1,7 +1,7 @@
-package com.example.crud;
+package com.example.crud.service;
 
-import com.example.crud.Post;
-import com.example.crud.PostMapper;
+import com.example.crud.mapper.PostMapper;
+import com.example.crud.entity.Post;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

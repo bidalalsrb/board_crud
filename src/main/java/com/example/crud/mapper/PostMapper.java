@@ -1,6 +1,6 @@
-package com.example.crud;
+package com.example.crud.mapper;
 
-import com.example.crud.Post;
+import com.example.crud.entity.Post;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

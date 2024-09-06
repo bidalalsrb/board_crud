@@ -1,6 +1,7 @@
-package com.example.crud;
+package com.example.crud.controller;
 
-import com.example.crud.PostService;
+import com.example.crud.entity.Post;
+import com.example.crud.service.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
