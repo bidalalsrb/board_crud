@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/posts")
 public class PostController {
@@ -15,10 +17,16 @@ public class PostController {
         this.postService = postService;
     }
 
-    // 게시글 목록 조회
     @GetMapping
-    public String getPosts(Model model) {
-        model.addAttribute("posts", postService.getAllPosts());
+    public String getPosts(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
+        List<Post> posts;
+        if (keyword != null && !keyword.isEmpty()) {
+            posts = postService.searchPosts(keyword);
+        } else {
+            posts = postService.getAllPosts();
+        }
+        model.addAttribute("posts", posts);
+        model.addAttribute("keyword", keyword);  // 검색어를 뷰로 전달
         return "posts";
     }
 

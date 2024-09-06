@@ -10,7 +10,8 @@ public interface PostMapper {
 
     @Select("SELECT * FROM posts")
     List<Post> getAllPosts();
-
+    @Select("SELECT * FROM posts WHERE title LIKE CONCAT('%', #{keyword}, '%') OR content LIKE CONCAT('%', #{keyword}, '%')")
+    List<Post> searchPosts(String keyword);
     @Select("SELECT * FROM posts WHERE id = #{id}")
     Post getPostById(Long id);
 

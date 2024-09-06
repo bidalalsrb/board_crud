@@ -19,6 +19,9 @@ public class PostService {
         return postMapper.getAllPosts();
     }
 
+    public List<Post> searchPosts(String keyword) {
+        return postMapper.searchPosts(keyword);
+    }
     public Post getPostById(Long id) {
         return postMapper.getPostById(id);
     }
