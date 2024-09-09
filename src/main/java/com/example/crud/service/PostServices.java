@@ -1,41 +1,43 @@
 package com.example.crud.service;
 
 import com.example.crud.entity.Post;
-import com.example.crud.mapper.PostMappers;
+import com.example.crud.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostServices {
 
-    private final PostMappers postMappers;
+    private final PostRepository postRepository;
 
-    public PostServices(PostMappers postMappers) {
-        this.postMappers = postMappers;
+    public PostServices(PostRepository postRepository) {
+        this.postRepository = postRepository;
     }
 
     public List<Post> getAllPosts() {
-        return postMappers.getAllPosts();
+        return postRepository.findAll();
     }
 
     public List<Post> searchPosts(String keyword) {
-        return postMappers.searchPosts(keyword);
+        return postRepository.findByTitleContainingOrContentContaining(keyword, keyword);
     }
 
     public Post getPostById(Long id) {
-        return postMappers.getPostById(id);
+        Optional<Post> post = postRepository.findById(id);
+        return post.orElse(null);
     }
 
     public void createPost(Post post) {
-        postMappers.insertPost(post);
+        postRepository.save(post);
     }
 
     public void updatePost(Post post) {
-        postMappers.updatePost(post);
+        postRepository.save(post);  // JPA에서 save는 새로 추가하거나 업데이트를 처리
     }
 
     public void deletePost(Long id) {
-        postMappers.deletePost(id);
+        postRepository.deleteById(id);
     }
 }

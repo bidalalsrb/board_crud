@@ -1,13 +1,22 @@
 package com.example.crud.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "posts")
 public class Post {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String content;
 
-    // 기본 생성자 (필수)
-    public Post() {
-    }
+    // 기본 생성자
+    public Post() {}
 
     // 매개변수 있는 생성자
     public Post(Long id, String title, String content) {
