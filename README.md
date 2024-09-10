@@ -1,1 +1,1 @@
-# board_crud
+# Thymeleaf + Spring Boot + mybatis + MySql
