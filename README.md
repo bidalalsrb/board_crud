@@ -1,1 +1,1 @@
-# Thymeleaf + Spring Boot + mybatis + MySql
+# Thymeleaf + Spring Boot + mybatis + MySQL
