@@ -1,9 +1,11 @@
 package com.example.crud.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
 @Table(name = "posts")
+@Data
 public class Post {
 
     @Id
@@ -15,38 +17,6 @@ public class Post {
     @Column(columnDefinition = "TEXT")
     private String content;
 
-    // 기본 생성자
-    public Post() {}
 
-    // 매개변수 있는 생성자
-    public Post(Long id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-    }
 
-    // Getter 및 Setter
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }
